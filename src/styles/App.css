@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mystery+Quest&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+body * {
+    font-family: "Montserrat", sans-serif;
+    color: #291507;
+}
+
+body *:focus {
+    outline: none;
+}
+
+body button {
+    color: rgba(41, 21, 7, 0.6);
+    font-size: 18px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+header {
+    background-image: url('../img/HeroImagemd.png');
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    color: #fff;
+    font-weight: 500;
+    font-size: 24px;
+    padding: 100px 0;
+}
+
+.intro {
+    max-width: 300px;
+}
+
+.intro img {
+    filter: invert(100%);
+    max-width: 207px;
+    max-height: 87px;
+    width: 100%;
+    height: 100%;
+}
+
+.intro input {
+    max-width: 400px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 24px 29px;
+    border-radius: 59px;
+}
+
+.intro p {
+    color: #fff;
+}
+
+.breeds {
+    background-color: #E3E1DC;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1060px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.breeds .container p {
+    font-weight: 500;
+}
+
+.breeds .container p::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #4D270C;
+    margin-top: 8px;
+    border-radius: 77px;
+}
+
+.suggestion-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.suggestion-container h1 {
+    font-size: 48px;
+    max-width: 540px;
+}
+
+.top-cats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-cats h5 {
+    font-weight: 600;
+}
+
+.top-cats img {
+    border-radius: 24px;
+}
+
+.bottom-part {
+    padding: 110px;
+    margin-top: 100px;
+}
+
+.text-part {
+    max-width: 450px;
+}
+
+.text-part h1 {
+    font-size: 48px;
+}
+
+.text-part h1::before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background-color: #4D270C;
+    margin-bottom: 16px;
+    border-radius: 77px;
+}
+
+.text-part p {
+    font-size: 18px;
+    margin-top: 44px;
+    margin-bottom: 66px;
+}

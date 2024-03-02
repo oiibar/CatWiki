@@ -25,7 +25,6 @@ function App() {
         .catch((error) => console.log("Error fetching breed:", error));
     }
   };
-
   const getImages = (breedId) => {
     if (breedId) {
       axios
@@ -34,14 +33,12 @@ function App() {
         .catch((error) => console.log("Error fetching images:", error));
     }
   };
-
   const getBreeds = () => {
     axios
       .get(`http://localhost:5000/api/breeds`)
       .then((res) => setBreeds(res.data))
       .catch((error) => console.log("Error fetching breeds:", error));
   };
-
   const handleBreed = (breedId) => {
     setSelectedBreed(breedId);
     getBreed(breedId);
@@ -50,7 +47,7 @@ function App() {
 
   useEffect(() => {
     getBreeds();
-  }, []);
+  }, [breed]);
 
   return (
     <div className="flex flex-col text-center justify-between">
@@ -76,25 +73,34 @@ function App() {
       </section>
 
       <section className="mb-28 flex flex-col items-center text-center justify-center">
-        <h1 className="text-4xl mb-5">{breed.name}</h1>
-        <Card className="mt-6 w-96">
-          <CardBody>
-            <Typography variant="h5" color="blue-gray" className="mb-2">
-              UI/UX Review Check
-            </Typography>
-            <Typography>
-              The place is close to Barceloneta Beach and bus stop just 2 min by
-              walk and near to &quot;Naviglio&quot; where you can enjoy the main
-              night life in Barcelona.
-            </Typography>
-          </CardBody>
-          <CardFooter className="pt-0">
-            <Button>Read More</Button>
-          </CardFooter>
-        </Card>
+        <h1 className="text-4xl mb-10 font-bold">{breed.name}</h1>
+        {Object.keys(breed).length > 0 && (
+          <div className="flex justify-center items-center text-center">
+            <Card className="mb-5 mr-5 w-1/3">
+              <CardBody>
+                <Typography variant="h5" color="blue-gray" className="mb-2">
+                  <h4 className="text-xl mb-5">{breed.temperament}</h4>
+                </Typography>
+                <Typography>
+                  <p className="mb-5">{breed.description}</p>
+                </Typography>
+              </CardBody>
+              <CardFooter className="pt-0">
+                <Button>
+                  <a
+                    href={breed.vetstreet_url || breed.wikipedia_url}
+                    target="_blank"
+                  >
+                    Read More
+                  </a>
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+        )}
       </section>
 
-      <section className="flex flex-col items-center text-center">
+      {/* <section className="flex flex-col items-center text-center">
         {!images.length === 5 ? (
           "Loading"
         ) : (
@@ -109,7 +115,7 @@ function App() {
             ))}
           </Carousel>
         )}
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -13,7 +13,7 @@ import {
 
 function App() {
   const [breeds, setBreeds] = useState([]);
-  const [selectedBreed, setSelectedBreed] = useState(""); // Added state to track selected breed
+  const [selectedBreed, setSelectedBreed] = useState("");
   const [breed, setBreed] = useState({});
   const [images, setImages] = useState([]);
 
@@ -50,11 +50,12 @@ function App() {
   }, [breed]);
 
   return (
-    <div className="flex flex-col text-center justify-between">
+    <div className="flex flex-col text-center justify-between bg-blue-200">
       <section className="flex mb-28">
         <img className="h-auto max-w-full" src={bg} alt="Cat" />
 
-        <form class="max-w-sm mx-auto">
+        <form className="max-w-sm mx-auto">
+          <h2 className="font-bold text-2xl mt-8">All breeds</h2>
           <select
             onChange={(e) => handleBreed(e.target.value)}
             value={selectedBreed}
@@ -72,11 +73,13 @@ function App() {
         </form>
       </section>
 
+      <hr className="w-5/6 my-0 mx-auto h-px my-8 bg-white border-0 mb-20"></hr>
+
       <section className="mb-28 flex flex-col items-center text-center justify-center">
         <h1 className="text-4xl mb-10 font-bold">{breed.name}</h1>
         {Object.keys(breed).length > 0 && (
           <div className="flex justify-center items-center text-center">
-            <Card className="mb-5 mr-5 w-1/3">
+            <Card className="mb-5 w-1/3">
               <CardBody>
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   <h4 className="text-xl mb-5">{breed.temperament}</h4>
@@ -88,8 +91,13 @@ function App() {
               <CardFooter className="pt-0">
                 <Button>
                   <a
-                    href={breed.vetstreet_url || breed.wikipedia_url}
+                    href={
+                      breed.vetstreet_url ||
+                      breed.vcahospitals_url ||
+                      breed.wikipedia_url
+                    }
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Read More
                   </a>
@@ -100,22 +108,26 @@ function App() {
         )}
       </section>
 
-      {/* <section className="flex flex-col items-center text-center">
+      <section className="flex flex-col items-center text-center">
         {!images.length === 5 ? (
           "Loading"
         ) : (
-          <Carousel className="rounded-xl w-5/6 mx-auto flex items-center justify-center">
+          <Carousel
+            className="rounded-xl  mx-auto flex items-center justify-center overflow-hidden"
+            swipe={true}
+          >
             {images.map((image, index) => (
-              <img
-                className="object-cover h-full w-full"
-                src={image.url}
-                alt="cat"
-                key={index}
-              />
+              <div key={index} className="w-full h-80">
+                <img
+                  className="object-cover max-h-full max-w-full rounded-xl"
+                  src={image.url}
+                  alt={`cat-${index}`}
+                />
+              </div>
             ))}
           </Carousel>
         )}
-      </section> */}
+      </section>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.css";
 import bg from "./assets/bg.png";
-import { Carousel } from "@material-tailwind/react";
 import {
   Card,
   CardBody,
@@ -112,20 +111,19 @@ function App() {
         {!images.length === 5 ? (
           "Loading"
         ) : (
-          <Carousel
-            className="rounded-xl  mx-auto flex items-center justify-center overflow-hidden"
+          <div
+            className="rounded-xl mx-auto flex flex-col items-center justify-center flex-wrap overflow-hidden"
             swipe={true}
           >
             {images.map((image, index) => (
-              <div key={index} className="w-full h-80">
-                <img
-                  className="object-cover max-h-full max-w-full rounded-xl"
-                  src={image.url}
-                  alt={`cat-${index}`}
-                />
-              </div>
+              <img
+                key={index}
+                className="object-cover w-100 h-100 rounded-xl"
+                src={image.url}
+                alt={`cat-${index}`}
+              />
             ))}
-          </Carousel>
+          </div>
         )}
       </section>
     </div>

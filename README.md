@@ -18,7 +18,7 @@ Here're some of the project's best features:
 <p>1. Clone the project</p>
 
 ```
-git clone https://github.com/oiibar/Cat_Wiki
+git clone https://github.com/oiibar/Cat_Wiki.git
 ```
 
 <p>2. Navigate to the client folder</p>

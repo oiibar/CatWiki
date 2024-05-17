@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-sm font-roboto;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply block gap-2 items-center text-sm text-white py-2 px-4 rounded-md disabled:bg-gray-400 disabled:cursor-not-allowed disabled:hover:bg-gray-400;
+  }
+  .select {
+    @apply mt-5 p-2 bg-gray-50 border border-blue-500 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+  .hr {
+    @apply w-5/6 mx-auto h-px bg-white border-0;
+  }
+}
+
+@layer utilities {
+  .btn-red {
+    @apply bg-red-800 hover:bg-red-600;
+  }
+  .btn-green {
+    @apply bg-green-600 hover:bg-green-800;
+  }
+}

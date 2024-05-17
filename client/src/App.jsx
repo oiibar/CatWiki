@@ -38,6 +38,7 @@ function App() {
       .then((res) => setBreeds(res.data))
       .catch((error) => console.log("Error fetching breeds:", error));
   };
+
   const handleBreed = (breedId) => {
     setSelectedBreed(breedId);
     getBreed(breedId);
@@ -49,16 +50,16 @@ function App() {
   }, [breed]);
 
   return (
-    <div className="flex flex-col text-center justify-between bg-blue-200">
-      <section className="flex mb-28">
+    <div className="flex flex-col gap-10 text-center justify-between bg-blue-200">
+      <section className="flex">
         <img className="h-auto max-w-full" src={bg} alt="Cat" />
 
-        <form className="max-w-sm mx-auto">
-          <h2 className="font-bold text-2xl mt-8">All breeds</h2>
+        <form className="flex flex-col mx-auto p-2">
+          <h2 className="font-bold text-2xl">Select breed</h2>
           <select
             onChange={(e) => handleBreed(e.target.value)}
             value={selectedBreed}
-            class="mt-5 bg-gray-50 border border-blue-500 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="select"
           >
             <option value="" disabled hidden>
               Select a breed
@@ -72,10 +73,10 @@ function App() {
         </form>
       </section>
 
-      <hr className="w-5/6 my-0 mx-auto h-px my-8 bg-white border-0 mb-20"></hr>
+      <hr className="hr"></hr>
 
-      <section className="mb-28 flex flex-col items-center text-center justify-center">
-        <h1 className="text-4xl mb-10 font-bold">{breed.name}</h1>
+      <section className="flex flex-col gap-8 items-center text-center justify-center">
+        <h1 className="text-4xl font-bold">{breed.name}</h1>
         {Object.keys(breed).length > 0 && (
           <div className="flex justify-center items-center text-center">
             <Card className="mb-5 w-1/3">

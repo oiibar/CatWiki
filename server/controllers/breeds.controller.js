@@ -1,8 +1,4 @@
-import express from "express";
-
-const router = express.Router();
-
-router.get("/", function async(req, res) {
+export const getAllBreeds = async (req, res) => {
   const headers = new Headers({
     "Content-Type": "application/json",
     "x-api-key": process.env.API_KEY,
@@ -19,9 +15,9 @@ router.get("/", function async(req, res) {
     .then((response) => response.json())
     .then((data) => res.send(data))
     .catch((error) => console.log("error", error));
-});
+};
 
-router.get("/:id", function async(req, res) {
+export const getBreed = async (req, res) => {
   const breedId = req.params.id;
 
   const headers = new Headers({
@@ -40,9 +36,9 @@ router.get("/:id", function async(req, res) {
     .then((response) => response.json())
     .then((data) => res.send(data))
     .catch((error) => console.log("error", error));
-});
+};
 
-router.get("/images/:id", function async(req, res) {
+export const getImages = async (req, res) => {
   const breedId = req.params.id;
 
   const headers = new Headers({
@@ -64,6 +60,6 @@ router.get("/images/:id", function async(req, res) {
     .then((response) => response.json())
     .then((data) => res.send(data))
     .catch((error) => console.log("error", error));
-});
+};
 
-export default router;
+export default { getAllBreeds, getBreed, getImages };

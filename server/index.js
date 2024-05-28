@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["https://cat-wiki-cli.onrender.com"],
     credentials: true,
     optionsSuccessStatus: 200,
   })

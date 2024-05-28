@@ -19,7 +19,7 @@ function App() {
   const getBreed = (breedId) => {
     if (breedId) {
       axios
-        .get(`http://localhost:5000/api/breeds/${breedId}`)
+        .get(`https://cat-wiki-serv.onrender.com/api/breeds/${breedId}`)
         .then((res) => setBreed(res.data))
         .catch((error) => console.log("Error fetching breed:", error));
     }
@@ -27,14 +27,14 @@ function App() {
   const getImages = (breedId) => {
     if (breedId) {
       axios
-        .get(`http://localhost:5000/api/breeds/images/${breedId}`)
+        .get(`https://cat-wiki-serv.onrender.com/api/breeds/images/${breedId}`)
         .then((res) => setImages(res.data))
         .catch((error) => console.log("Error fetching images:", error));
     }
   };
   const getBreeds = () => {
     axios
-      .get(`http://localhost:5000/api/breeds`)
+      .get(`https://cat-wiki-serv.onrender.com/api/breeds`)
       .then((res) => setBreeds(res.data))
       .catch((error) => console.log("Error fetching breeds:", error));
   };

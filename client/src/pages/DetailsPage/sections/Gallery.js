@@ -2,53 +2,17 @@ import React from "react";
 
 const Gallery = () => {
   return (
-    <div className="container flex flex-col gap-4 mb-28">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-4 mb-28">
       <h2 className="text-xl font-semibold">Other photos</h2>
-      <div className="flex flex-col gap-4">
-        <div className="flex gap-4 justify-between">
+      <div className="flex flex-wrap gap-4 justify-center items-center">
+        {[...Array(8)].map((_, index) => (
           <img
-            src="https://placehold.co/278x278"
-            alt="Cat"
-            className="rounded-2xl"
+            key={index}
+            src={`https://placehold.co/278x278?text=Cat+${index + 1}`}
+            alt={`Cat ${index + 1}`}
+            className="rounded-2xl w-full sm:w-1/3 md:w-1/4 lg:w-1/5"
           />
-          <img
-            src="https://placehold.co/278x278"
-            alt="Cat"
-            className="rounded-2xl"
-          />
-          <img
-            src="https://placehold.co/278x278"
-            alt="Cat"
-            className="rounded-2xl"
-          />
-          <img
-            src="https://placehold.co/278x278"
-            alt="Cat"
-            className="rounded-2xl"
-          />
-        </div>
-        <div className="flex gap-4 justify-between">
-          <img
-            src="https://placehold.co/278x278"
-            alt="Cat"
-            className="rounded-2xl"
-          />
-          <img
-            src="https://placehold.co/278x278"
-            alt="Cat"
-            className="rounded-2xl"
-          />
-          <img
-            src="https://placehold.co/278x278"
-            alt="Cat"
-            className="rounded-2xl"
-          />
-          <img
-            src="https://placehold.co/278x278"
-            alt="Cat"
-            className="rounded-2xl"
-          />
-        </div>
+        ))}
       </div>
     </div>
   );

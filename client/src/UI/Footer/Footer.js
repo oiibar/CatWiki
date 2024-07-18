@@ -4,7 +4,7 @@ import copyright from "../../assets/c.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-black flex rounded-t-2xl justify-between container text-white sm:px-14 px-8 py-4">
+    <footer className="bg-black flex rounded-t-2xl justify-between container text-white sm:px-8 px-16 py-4">
       <img src={logo} alt="Logo" />
       <div className="flex gap-2 items-center">
         <img src={copyright} className="w-4" alt="Copyright" />

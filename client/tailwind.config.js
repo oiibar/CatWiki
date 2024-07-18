@@ -4,7 +4,12 @@ module.exports = withMT({
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      roboto: "Roboto",
+      montserrat: "Montserrat",
+    },
+    extend: {
+      backgroundImage: {
+        hero: "url('./assets/hero.png')",
+      },
     },
   },
   plugins: [],

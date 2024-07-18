@@ -1,16 +1,12 @@
 import React from "react";
-import logo from "../../../assets/logo.svg";
 import logoHero from "../../../assets/logoHero.svg";
 import searchIcon from "../../../assets/search.svg"; // Step 1: Import the search icon
+import Header from "../../../UI/Header/Header";
 
 const Home = () => {
   return (
     <div className="px-2">
-      <header>
-        <div className="container py-6">
-          <img src={logo} alt="Logo" />
-        </div>
-      </header>
+      <Header />
       <div className="container bg-[url('./assets/hero.png')] py-32 px-20 rounded-t-2xl bg-cover bg-no-repeat">
         <div className="text-[#fff] flex flex-col gap-10 w-1/3">
           <div>

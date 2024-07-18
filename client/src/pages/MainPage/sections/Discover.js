@@ -3,7 +3,7 @@ import arrow from "../../../assets/arrow.svg";
 
 const Discover = () => {
   return (
-    <div className="bg-[#E3E1DC] container rounded-b-2xl px-20 py-10 flex flex-col gap-16">
+    <div className="bg-[#E3E1DC] container rounded-b-2xl px-20 py-10 flex flex-col gap-16 mb-20">
       <div>
         <p className="font-medium">Most Searched Breeds</p>
         <hr className="border-[#4D270C] border-2 rounded-2xl w-10" />
@@ -11,7 +11,10 @@ const Discover = () => {
       <div className="flex justify-between">
         <h1 className="text-5xl font-bold">66+ Breeds For you to discover</h1>
         <div className="flex items-center justify-center gap-2 cursor-pointer font-bold transition-all duration-500">
-          <a className="uppercase text-[#291507] opacity-60 hover:opacity-100">
+          <a
+            href="youtube.com"
+            className="uppercase text-[#291507] opacity-60 hover:opacity-100"
+          >
             See More
           </a>
           <img src={arrow} className="w-6" alt="Arrow" />

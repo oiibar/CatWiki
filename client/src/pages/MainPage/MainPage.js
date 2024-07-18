@@ -5,11 +5,11 @@ import Footer from "../../UI/Footer/Footer";
 
 const Main = () => {
   return (
-    <div>
+    <>
       <Home />
       <Discover />
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const Gallery = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="container flex flex-col gap-4 mb-28">
       <h2 className="text-xl font-semibold">Other photos</h2>
       <div className="flex flex-col gap-4">
         <div className="flex gap-4 justify-between">

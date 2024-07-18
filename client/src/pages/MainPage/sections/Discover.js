@@ -3,7 +3,7 @@ import arrow from "../../../assets/arrow.svg";
 
 const Discover = () => {
   return (
-    <div className="bg-[#E3E1DC] container rounded-b-2xl px-20 py-10 flex flex-col gap-16 mb-20">
+    <section className="bg-[#E3E1DC] container rounded-b-2xl px-20 py-10 flex flex-col gap-16 mb-20">
       <div>
         <p className="font-medium">Most Searched Breeds</p>
         <hr className="border-[#4D270C] border-2 rounded-2xl w-10" />
@@ -54,7 +54,7 @@ const Discover = () => {
           <p className="font-semibold">Bengal</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

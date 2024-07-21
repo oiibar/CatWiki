@@ -6,12 +6,14 @@ import Header from "../../UI/Header/Header";
 
 const Main = () => {
   return (
-    <>
+    <div className="container">
       <Header />
-      <Home />
-      <Discover />
+      <main className="flex flex-col min-h-screen">
+        <Home />
+        <Discover />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -20,15 +20,14 @@ const Info = ({ breed }) => {
     reference_image_id, // Assuming this is an ID for fetching the large image
   } = breed;
 
-  // Placeholder for large image URL
-  const largeImageUrl = `http://localhost:5000/api/breeds/images/${reference_image_id}`;
+  // URL for large image
+  const largeImageUrl = `https://cdn2.thecatapi.com/images/${reference_image_id}.jpg`;
 
   // State to manage image loading
-  const [imgSrc, setImgSrc] = useState(null);
+  const [imgSrc, setImgSrc] = useState("https://placehold.co/370x370");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate image loading
     if (reference_image_id) {
       const img = new Image();
       img.src = largeImageUrl;
@@ -44,7 +43,7 @@ const Info = ({ breed }) => {
     } else {
       setLoading(false);
     }
-  }, [reference_image_id]);
+  }, [largeImageUrl, reference_image_id]);
 
   // Create an array of characteristics
   const characteristics = [
@@ -60,12 +59,12 @@ const Info = ({ breed }) => {
 
   return (
     <section className="container flex flex-col gap-10 lg:flex-row justify-between">
-      <div className="mx-auto">
+      <div className="mx-auto rounded-2xl w-50 h-50">
         <a href={wikipedia_url} target="_blank" rel="noopener noreferrer">
           <img
-            src="https://placehold.co/370x370"
-            className="block border-2 border-black"
-            alt="Breed Name"
+            src={imgSrc}
+            className="block rounded-2xl object-cover"
+            alt={name}
           />
         </a>
       </div>

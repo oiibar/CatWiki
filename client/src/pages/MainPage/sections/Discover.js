@@ -49,13 +49,13 @@ const Discover = () => {
         {randomBreeds.map((breed) => (
           <div
             key={breed.id}
-            className="cursor-pointer"
+            className="cursor-pointer w-1/5"
             onClick={() => handleBreedClick(breed.id)}
           >
             <img
-              src="https://placehold.co/200x200"
-              alt="Breed Name"
-              className="border-2 border-black mb-2"
+              src={breed.image?.url || "https://placehold.co/200x200"}
+              alt={breed.name}
+              className="w-full h-full object-cover rounded-xl mb-2"
             />
             <p className="font-semibold">{breed.name}</p>
           </div>

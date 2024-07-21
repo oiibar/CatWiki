@@ -2,8 +2,8 @@ import React from "react";
 
 const Gallery = ({ images }) => {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-4 mb-28">
-      <h2 className="text-xl font-semibold">Other photos</h2>
+    <div className="container">
+      <h2 className="text-xl font-semibold mb-4">Other photos</h2>
       <div className="flex flex-wrap gap-4 justify-center items-center">
         {images.length > 0 ? (
           images.map((image, index) => (

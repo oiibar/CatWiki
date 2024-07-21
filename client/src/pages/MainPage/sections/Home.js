@@ -10,7 +10,7 @@ const Home = () => {
   const [filteredBreeds, setFilteredBreeds] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestionsRef = useRef(null);
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBreeds = async () => {
@@ -86,14 +86,13 @@ const Home = () => {
   };
 
   const handleBreedFetch = async (breedName) => {
-    // Fetch breed data by name
     const breed = breeds.find(
       (b) => b.name.toLowerCase() === breedName.toLowerCase()
     );
     if (breed) {
       const breedData = await CatService.getBreedById(breed.id);
       console.log("Fetched breed data:", breedData);
-      // Navigate to the details page with breed ID
+
       navigate(`/details/${breed.id}`);
     } else {
       console.error("Breed not found");
@@ -101,8 +100,8 @@ const Home = () => {
   };
 
   return (
-    <div className="container sm:bg-[url('./assets/HeroImagesm.png')] bg-black py-14 px-8 sm:p-20 rounded-t-2xl bg-cover bg-no-repeat">
-      <div className="text-[#fff] flex flex-col gap-10 sm:w-1/3 w-full">
+    <section className="container bg-[url('./assets/HeroImagesm.png')] rounded-t-2xl bg-cover bg-no-repeat">
+      <div className="text-white flex flex-col gap-10 md:w-1/3">
         <div>
           <img className="w-80" src={logoHero} alt="Hero Logo" />
           <p className="md:text-2xl text-lg">
@@ -144,7 +143,7 @@ const Home = () => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

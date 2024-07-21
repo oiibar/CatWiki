@@ -6,12 +6,10 @@ import Header from "../../UI/Header/Header";
 
 const Main = () => {
   return (
-    <div className="container">
+    <div>
       <Header />
-      <main className="flex flex-col min-h-screen">
-        <Home />
-        <Discover />
-      </main>
+      <Home />
+      <Discover />
       <Footer />
     </div>
   );

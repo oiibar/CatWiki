@@ -1,18 +1,14 @@
 import React from "react";
-import logo from "../../assets/logo-white.svg";
-import copyright from "../../assets/c.svg";
+import copyright from "../../assets/copyright.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-black flex rounded-t-2xl justify-between container text-white sm:px-8 px-8 py-4">
-      <img src={logo} alt="Logo" />
-      <div className="flex gap-2 items-center">
-        <img src={copyright} className="w-4" alt="Copyright" />
-        <p className="sm:text-sm text-xs">
-          created by <span className="font-bold">Aibar</span> - devChallenge.io
-          2021
-        </p>
-      </div>
+    <footer className=" flex container gap-2 justify-center text-white bg-black p-6 rounded-t-2xl">
+      <img src={copyright} className="w-4" alt="Copyright" />
+      <p className="text-sm">
+        created by <span className="font-bold">Aibar</span> - devChallenge.io
+        2024
+      </p>
     </footer>
   );
 };

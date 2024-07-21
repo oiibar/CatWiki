@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <div className="container py-6">
+      <div className="container py-6 px-0">
         <Link to="/">
           <img src={logo} alt="Logo" className="w-32" />
         </Link>

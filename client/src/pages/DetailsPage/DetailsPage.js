@@ -31,12 +31,12 @@ const Details = () => {
   if (!breed) return <div>Loading...</div>; // Handle loading state
 
   return (
-    <>
+    <div>
       <Header />
       <Info breed={breed} />
       <Gallery images={images} />
       <Footer />
-    </>
+    </div>
   );
 };
 

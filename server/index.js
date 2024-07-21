@@ -1,25 +1,22 @@
-import dotenv from "dotenv";
-import cors from "cors";
 import express from "express";
-import breedsRoutes from "./routes/breeds.router.js";
+import cors from "cors";
+import breedRoutes from "./routes/breeds.router.js";
 
-dotenv.config();
 const app = express();
 app.use(express.json());
+
 app.use(
   cors({
-    origin: ["https://cat-wiki-cli.onrender.com"],
+    origin: "*",
     credentials: true,
     optionsSuccessStatus: 200,
   })
 );
 
-app.use("/api/breeds", breedsRoutes);
+// Example route
+app.use("/api/breeds", breedRoutes);
 
-try {
-  app.listen(process.env.PORT, () => {
-    console.log(`Listening on port ${process.env.PORT}`);
-  });
-} catch (e) {
-  console.log(e);
-}
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import logoHero from "../../../assets/logoHero.svg";
+import logo_white from "../../../assets/logo_white.svg";
 import CatService from "../../../API/CatService";
 import { FaSearch } from "react-icons/fa";
 
@@ -100,21 +100,15 @@ const Home = () => {
   };
 
   return (
-    <section className="container bg-[url('./assets/HeroImagesm.png')] rounded-t-2xl bg-cover bg-no-repeat">
+    <section className="container p-4 lg:p-16 lg:py-32 sm:p-12  bg-[url('./assets/hero.png')] rounded-t-2xl bg-cover bg-no-repeat">
       <div className="text-white flex flex-col gap-10 md:w-1/3">
         <div>
-          <img className="w-80" src={logoHero} alt="Hero Logo" />
+          <img className="w-60 md:w-80" src={logo_white} alt="Hero Logo" />
           <p className="md:text-2xl text-lg">
             Get to know more about your cat breed
           </p>
         </div>
         <div className="relative">
-          {/* <img
-            src={searchIcon}
-            className="absolute right-3 sm:w-6 w-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
-            alt="Search Icon"
-            onClick={handleSearchClick}
-          /> */}
           <FaSearch
             onClick={handleSearchClick}
             className="absolute right-3 sm:w-10 w-8 top-1/2 transform -translate-y-1/2 cursor-pointer text-black"
@@ -130,7 +124,7 @@ const Home = () => {
             <div
               ref={suggestionsRef}
               className="absolute top-full left-0 w-full bg-white text-[#000] rounded-xl shadow-lg mt-1 z-10"
-              style={{ maxHeight: "200px", overflowY: "auto" }} // Set max height and enable vertical scrolling
+              style={{ maxHeight: "200px", overflowY: "auto" }}
             >
               <ul className="list-none p-0 m-0">
                 {filteredBreeds.map((breed) => (

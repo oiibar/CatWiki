@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-montserrat text-[#291507];
+    @apply font-montserrat text-[#291507] px-2;
   }
 }
 

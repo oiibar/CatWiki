@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const Info = ({ breed }) => {
-  // Destructure the breed object
   const {
     name,
     description,
@@ -17,13 +16,11 @@ const Info = ({ breed }) => {
     social_needs,
     stranger_friendly,
     wikipedia_url,
-    reference_image_id, // Assuming this is an ID for fetching the large image
+    reference_image_id,
   } = breed;
 
-  // URL for large image
   const largeImageUrl = `https://cdn2.thecatapi.com/images/${reference_image_id}.jpg`;
 
-  // State to manage image loading
   const [imgSrc, setImgSrc] = useState("https://placehold.co/370x370");
   const [loading, setLoading] = useState(true);
 
@@ -37,7 +34,7 @@ const Info = ({ breed }) => {
       };
       img.onerror = () => {
         console.error("Failed to load image:", largeImageUrl);
-        setImgSrc("https://placehold.co/370x370"); // Fallback in case of error
+        setImgSrc("https://placehold.co/370x370");
         setLoading(false);
       };
     } else {
@@ -45,7 +42,6 @@ const Info = ({ breed }) => {
     }
   }, [largeImageUrl, reference_image_id]);
 
-  // Create an array of characteristics
   const characteristics = [
     { label: "Adaptability:", value: adaptability },
     { label: "Affection level:", value: affection_level },
@@ -84,7 +80,7 @@ const Info = ({ breed }) => {
         </div>
         <div className="flex flex-col gap-2">
           {characteristics
-            .filter(({ value }) => value > 0) // Only include characteristics with value > 0
+            .filter(({ value }) => value > 0)
             .map(({ label, value }, index) => (
               <div key={index} className="flex justify-between items-center">
                 <p className="font-semibold">{label}</p>

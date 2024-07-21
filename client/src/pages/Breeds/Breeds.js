@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../UI/Header/Header";
+import Header from "../../UI/Header";
 import CatService from "../../API/CatService"; // Import CatService for fetching breeds
 
 const Breeds = () => {

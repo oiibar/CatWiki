@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CatService from "../../API/CatService";
 import Info from "./sections/Info";
-import Header from "../../UI/Header/Header";
-import Footer from "../../UI/Footer/Footer";
+import Header from "../../UI/Header";
+import Footer from "../../UI/Footer";
 import Gallery from "./sections/Gallery";
 
 const Details = () => {

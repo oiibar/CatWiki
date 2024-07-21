@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import arrow from "../../../assets/arrow.svg";
+import { FaArrowRightLong } from "react-icons/fa6";
 import CatService from "../../../API/CatService"; // Import CatService for fetching breeds
 
 const Discover = () => {
@@ -40,11 +40,9 @@ const Discover = () => {
         <h1 className="text-3xl font-bold text-center sm:text-left">
           66+ Breeds For you to discover
         </h1>
-        <div className="flex items-center gap-2 cursor-pointer font-bold transition-all duration-500">
-          <Link to="/breeds" className="opacity-60 hover:opacity-100">
-            SEE MORE
-          </Link>
-          <img src={arrow} className="w-6" alt="Arrow" />
+        <div className="flex items-center opacity-60 hover:opacity-100 cursor-pointer font-bold transition-all duration-500">
+          <Link to="/breeds">SEE MORE</Link>
+          <FaArrowRightLong className="w-12" />
         </div>
       </div>
       <div className="flex flex-wrap gap-6 justify-center lg:justify-between">

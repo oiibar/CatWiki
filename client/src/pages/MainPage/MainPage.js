@@ -1,8 +1,8 @@
 import React from "react";
 import Home from "./sections/Home";
 import Discover from "./sections/Discover";
-import Footer from "../../UI/Footer/Footer";
-import Header from "../../UI/Header/Header";
+import Footer from "../../UI/Footer";
+import Header from "../../UI/Header";
 
 const Main = () => {
   return (

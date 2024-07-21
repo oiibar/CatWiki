@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import logoHero from "../../../assets/logoHero.svg";
-import searchIcon from "../../../assets/search.svg";
 import CatService from "../../../API/CatService";
+import { FaSearch } from "react-icons/fa";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -109,11 +109,15 @@ const Home = () => {
           </p>
         </div>
         <div className="relative">
-          <img
+          {/* <img
             src={searchIcon}
             className="absolute right-3 sm:w-6 w-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
             alt="Search Icon"
             onClick={handleSearchClick}
+          /> */}
+          <FaSearch
+            onClick={handleSearchClick}
+            className="absolute right-3 sm:w-10 w-8 top-1/2 transform -translate-y-1/2 cursor-pointer text-black"
           />
           <input
             className="rounded-2xl md:pl-4 pl-2 pr-12 md:py-4 py-2 text-black w-full"

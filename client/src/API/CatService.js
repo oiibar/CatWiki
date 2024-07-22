@@ -3,7 +3,7 @@ import axios from "axios";
 class CatService {
   static async getBreeds() {
     try {
-      const response = await axios.get("http://localhost:5000/api/breeds");
+      const response = await axios.get("https://cat-wiki-serv.onrender.com/api/breeds");
       return response.data;
     } catch (e) {
       console.error("Error fetching breeds:", e.message);
@@ -14,7 +14,7 @@ class CatService {
   static async getBreedById(breedId) {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/breeds/${breedId}`
+        `https://cat-wiki-serv.onrender.com/api/breeds/${breedId}`
       );
       return response.data;
     } catch (e) {
@@ -26,7 +26,7 @@ class CatService {
   static async getImagesByBreedId(breedId) {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/breeds/images/${breedId}`
+        `https://cat-wiki-serv.onrender.com/api/breeds/images/${breedId}`
       );
       return response.data;
     } catch (e) {

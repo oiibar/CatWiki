@@ -7,7 +7,6 @@ const useBreeds = () => {
   const [breeds, setBreeds] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
 
   const fetchBreeds = useCallback(async () => {
     if (loading) return;
@@ -15,16 +14,14 @@ const useBreeds = () => {
     try {
       const result = await CatService.getBreeds(page);
       if (result.length > 0) {
-        setBreeds((prevBreeds) => [...prevBreeds, ...result]);
-      } else {
-        setHasMore(false);
+        setBreeds(result);
       }
     } catch (error) {
       console.error("Failed to fetch breeds:", error);
     } finally {
       setLoading(false);
     }
-  }, [loading, page]);
+  }, [loading]);
 
   useEffect(() => {
     fetchBreeds();
@@ -46,7 +43,7 @@ const useBreeds = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loading]);
 
-  return { breeds, hasMore, loading };
+  return { breeds, loading };
 };
 
 export default useBreeds;

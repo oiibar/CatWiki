@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "*",
+    origin: ["https://cat-wiki-lime-one.vercel.app/"],
     credentials: true,
     optionsSuccessStatus: 200,
   })

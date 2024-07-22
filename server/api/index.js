@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import breedRoutes from "./routes/breeds.router.js";
+import breedRoutes from "../routes/breeds.router.js";
 
 const app = express();
 app.use(express.json());

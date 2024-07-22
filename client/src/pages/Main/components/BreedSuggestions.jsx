@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useCallback, memo } from "react";
 
 const BreedSuggestions = ({
   filteredBreeds,
@@ -7,21 +7,24 @@ const BreedSuggestions = ({
 }) => {
   const suggestionsRef = useRef(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
+  const handleClickOutside = useCallback(
+    (event) => {
       if (
         suggestionsRef.current &&
         !suggestionsRef.current.contains(event.target)
       ) {
         setShowSuggestions(false);
       }
-    };
+    },
+    [setShowSuggestions]
+  );
 
+  useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [setShowSuggestions]);
+  }, [handleClickOutside]);
 
   return (
     <div
@@ -44,4 +47,4 @@ const BreedSuggestions = ({
   );
 };
 
-export default BreedSuggestions;
+export default memo(BreedSuggestions);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import logo_white from "../../../assets/logo_white.svg";
 import CatService from "../../../API/CatService";
@@ -38,39 +38,48 @@ const Home = () => {
     updateFilteredBreeds();
   }, [search, breeds]);
 
-  const handleKeyDown = async (e) => {
-    if (e.key === "Enter" && search !== "") {
-      await handleBreedFetch(search);
-      setShowSuggestions(false);
-    }
-  };
+  const handleBreedFetch = useCallback(
+    async (breedName) => {
+      const breed = breeds.find(
+        (b) => b.name.toLowerCase() === breedName.toLowerCase()
+      );
+      if (breed) {
+        navigate(`/details/${breed.id}`);
+      } else {
+        console.error("Breed not found");
+      }
+    },
+    [breeds, navigate]
+  );
 
-  const handleSearchClick = async () => {
+  const handleKeyDown = useCallback(
+    async (e) => {
+      if (e.key === "Enter" && search !== "") {
+        await handleBreedFetch(search);
+        setShowSuggestions(false);
+      }
+    },
+    [search, handleBreedFetch]
+  );
+
+  const handleSearchClick = useCallback(async () => {
     if (search !== "") {
       await handleBreedFetch(search);
       setShowSuggestions(false);
     }
-  };
+  }, [search, handleBreedFetch]);
 
-  const handleSuggestionClick = async (breedName) => {
-    await handleBreedFetch(breedName);
-    setShowSuggestions(false);
-  };
+  const handleSuggestionClick = useCallback(
+    async (breedName) => {
+      await handleBreedFetch(breedName);
+      setShowSuggestions(false);
+    },
+    [handleBreedFetch]
+  );
 
-  const handleBreedFetch = async (breedName) => {
-    const breed = breeds.find(
-      (b) => b.name.toLowerCase() === breedName.toLowerCase()
-    );
-    if (breed) {
-      navigate(`/details/${breed.id}`);
-    } else {
-      console.error("Breed not found");
-    }
-  };
-
-  const handleFocus = () => {
+  const handleFocus = useCallback(() => {
     setShowSuggestions(true);
-  };
+  }, []);
 
   return (
     <section className="container p-4 lg:p-16 lg:py-32 sm:p-12 bg-[url('./assets/hero.png')] rounded-t-2xl bg-cover bg-no-repeat">

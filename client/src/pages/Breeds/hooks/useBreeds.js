@@ -28,7 +28,7 @@ const useBreeds = () => {
 
   useEffect(() => {
     fetchBreeds();
-  }, [fetchBreeds]);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

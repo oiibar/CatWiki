@@ -1,18 +1,16 @@
-import React from "react";
+import React, { memo } from "react";
 import Home from "./sections/Home";
 import Discover from "./sections/Discover";
 import Footer from "../../UI/Footer";
 import Header from "../../UI/Header";
 
-const Main = () => {
-  return (
-    <div>
-      <Header />
-      <Home />
-      <Discover />
-      <Footer />
-    </div>
-  );
-};
+const Main = () => (
+  <div>
+    <Header />
+    <Home />
+    <Discover />
+    <Footer />
+  </div>
+);
 
-export default Main;
+export default memo(Main);

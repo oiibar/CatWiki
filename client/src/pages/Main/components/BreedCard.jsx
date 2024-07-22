@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useCallback, memo } from "react";
 import { useNavigate } from "react-router-dom";
 
 const BreedCard = ({ breed }) => {
   const navigate = useNavigate();
 
-  const handleBreedClick = (id) => {
-    navigate(`/details/${id}`);
-  };
+  const handleBreedClick = useCallback(
+    (id) => {
+      navigate(`/details/${id}`);
+    },
+    [navigate]
+  );
 
   return (
     <div
@@ -23,4 +26,4 @@ const BreedCard = ({ breed }) => {
   );
 };
 
-export default BreedCard;
+export default memo(BreedCard);

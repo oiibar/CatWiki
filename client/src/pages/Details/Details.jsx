@@ -10,7 +10,7 @@ const Details = () => {
   const { breedId } = useParams();
   const { breed, images, loading } = useBreedDetails(breedId);
 
-  if (loading)
+  if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div
@@ -23,13 +23,15 @@ const Details = () => {
         </div>
       </div>
     );
+  }
 
-  if (!breed)
+  if (!breed) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="text-4xl font-bold">No breed details available</div>
       </div>
     );
+  }
 
   return (
     <div>

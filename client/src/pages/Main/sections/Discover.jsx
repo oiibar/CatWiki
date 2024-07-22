@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import CatService from "../../../API/CatService";
@@ -8,23 +8,21 @@ const Discover = () => {
   const [randomBreeds, setRandomBreeds] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchBreeds = async () => {
-      setLoading(true);
-      const result = await CatService.getBreeds();
-      if (!result.error) {
-        const shuffledBreeds = result
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 4);
-        setRandomBreeds(shuffledBreeds);
-      } else {
-        console.error("Failed to fetch breeds:", result.error);
-      }
-      setLoading(false);
-    };
-
-    fetchBreeds();
+  const fetchBreeds = useCallback(async () => {
+    setLoading(true);
+    const result = await CatService.getBreeds();
+    if (!result.error) {
+      const shuffledBreeds = result.sort(() => 0.5 - Math.random()).slice(0, 4);
+      setRandomBreeds(shuffledBreeds);
+    } else {
+      console.error("Failed to fetch breeds:", result.error);
+    }
+    setLoading(false);
   }, []);
+
+  useEffect(() => {
+    fetchBreeds();
+  }, [fetchBreeds]);
 
   return (
     <section className="bg-[#E3E1DC] container rounded-b-2xl flex flex-col gap-10">

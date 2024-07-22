@@ -1,9 +1,10 @@
 import axios from "axios";
+const BASE_URL = "http://localhost:5000/api";
 
 class CatService {
   static async getBreeds() {
     try {
-      const response = await axios.get("https://cat-wiki-serv.onrender.com/api/breeds");
+      const response = await axios.get(`${BASE_URL}/breeds`);
       return response.data;
     } catch (e) {
       console.error("Error fetching breeds:", e.message);
@@ -13,9 +14,7 @@ class CatService {
 
   static async getBreedById(breedId) {
     try {
-      const response = await axios.get(
-        `https://cat-wiki-serv.onrender.com/api/breeds/${breedId}`
-      );
+      const response = await axios.get(`${BASE_URL}/breeds/${breedId}`);
       return response.data;
     } catch (e) {
       console.error(`Error fetching breed with ID ${breedId}:`, e.message);
@@ -25,9 +24,7 @@ class CatService {
 
   static async getImagesByBreedId(breedId) {
     try {
-      const response = await axios.get(
-        `https://cat-wiki-serv.onrender.com/api/breeds/images/${breedId}`
-      );
+      const response = await axios.get(`${BASE_URL}/breeds/images/${breedId}`);
       return response.data;
     } catch (e) {
       console.error(

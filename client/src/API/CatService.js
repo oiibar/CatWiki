@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://cat-wiki-serv.vercel.app/";
+const BASE_URL = "https://cat-wiki-serv.vercel.app/api";
 
 class CatService {
   static async getBreeds() {

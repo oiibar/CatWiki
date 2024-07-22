@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import "./index.css";
 import bg from "./assets/bg.png";
@@ -15,29 +15,37 @@ function App() {
   const [selectedBreed, setSelectedBreed] = useState("");
   const [breed, setBreed] = useState({});
   const [images, setImages] = useState([]);
+  const [loadingBreeds, setLoadingBreeds] = useState(true);
+  const [loadingImages, setLoadingImages] = useState(false);
 
-  const getBreed = (breedId) => {
+  const getBreed = useCallback((breedId) => {
     if (breedId) {
       axios
         .get(`https://cat-wiki-serv.onrender.com/api/breeds/${breedId}`)
         .then((res) => setBreed(res.data))
         .catch((error) => console.log("Error fetching breed:", error));
     }
-  };
-  const getImages = (breedId) => {
+  }, []);
+
+  const getImages = useCallback((breedId) => {
     if (breedId) {
+      setLoadingImages(true);
       axios
         .get(`https://cat-wiki-serv.onrender.com/api/breeds/images/${breedId}`)
         .then((res) => setImages(res.data))
-        .catch((error) => console.log("Error fetching images:", error));
+        .catch((error) => console.log("Error fetching images:", error))
+        .finally(() => setLoadingImages(false));
     }
-  };
-  const getBreeds = () => {
+  }, []);
+
+  const getBreeds = useCallback(() => {
+    setLoadingBreeds(true);
     axios
       .get(`https://cat-wiki-serv.onrender.com/api/breeds`)
       .then((res) => setBreeds(res.data))
-      .catch((error) => console.log("Error fetching breeds:", error));
-  };
+      .catch((error) => console.log("Error fetching breeds:", error))
+      .finally(() => setLoadingBreeds(false));
+  }, []);
 
   const handleBreed = (breedId) => {
     setSelectedBreed(breedId);
@@ -47,7 +55,7 @@ function App() {
 
   useEffect(() => {
     getBreeds();
-  }, [breed]);
+  }, [getBreeds]);
 
   return (
     <div className="flex flex-col gap-10 text-center justify-between bg-blue-200">
@@ -59,10 +67,11 @@ function App() {
           <select
             onChange={(e) => handleBreed(e.target.value)}
             value={selectedBreed}
-            class="select"
+            className="select"
+            disabled={loadingBreeds}
           >
             <option value="" disabled hidden>
-              Select a breed
+              {loadingBreeds ? "Loading breeds..." : "Select a breed"}
             </option>
             {breeds.map((breedOption, index) => (
               <option value={breedOption.id} key={index}>
@@ -109,21 +118,25 @@ function App() {
       </section>
 
       <section className="flex flex-col items-center text-center">
-        {!images.length === 5 ? (
-          "Loading"
+        {loadingImages ? (
+          "Loading images..."
         ) : (
           <div
             className="rounded-xl mx-auto flex flex-col items-center justify-center flex-wrap overflow-hidden"
             swipe={true}
           >
-            {images.map((image, index) => (
-              <img
-                key={index}
-                className="object-cover w-100 h-100 rounded-xl"
-                src={image.url}
-                alt={`cat-${index}`}
-              />
-            ))}
+            {images.length > 0 ? (
+              images.map((image, index) => (
+                <img
+                  key={index}
+                  className="object-cover w-100 h-100 rounded-xl"
+                  src={image.url}
+                  alt={`cat-${index}`}
+                />
+              ))
+            ) : (
+              <p>No images available</p>
+            )}
           </div>
         )}
       </section>

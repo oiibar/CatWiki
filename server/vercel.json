@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "routes": [{ "src": "/(.*)", "dest": "/" }],
-  "framework": null,
-  "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
-  "buildCommand": ""
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }],
+  "rewrites": [{ "src": "/(.*)", "dest": "/index.js" }]
 }

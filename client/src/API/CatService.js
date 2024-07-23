@@ -4,7 +4,7 @@ const api = axios.create({
   timeout: 5000,
 });
 
-export const getBreeds = async () => {
+const getBreeds = async () => {
   try {
     const response = await api.get(`${BASE_URL}`);
     return response.data;
@@ -14,7 +14,7 @@ export const getBreeds = async () => {
   }
 };
 
-export const getBreedById = async (breedId) => {
+const getBreedById = async (breedId) => {
   try {
     const response = await api.get(`${BASE_URL}/${breedId}`);
     return response.data;
@@ -24,7 +24,7 @@ export const getBreedById = async (breedId) => {
   }
 };
 
-export const getImagesByBreedId = async (breedId) => {
+const getImagesByBreedId = async (breedId) => {
   try {
     const response = await api.get(`${BASE_URL}/images/${breedId}`);
     return response.data;

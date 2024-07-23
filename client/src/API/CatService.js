@@ -36,3 +36,5 @@ export const getImagesByBreedId = async (breedId) => {
     return { error: e.message };
   }
 };
+
+export default { getImagesByBreedId, getBreedById, getBreeds };

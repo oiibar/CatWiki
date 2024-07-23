@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  getImagesByBreedId,
-  getBreedById,
-  getBreeds,
-} from "../../../API/CatService";
+import { getImagesByBreedId, getBreedById } from "../../../API/CatService";
 
 const useBreedDetails = (breedId) => {
   const [breed, setBreed] = useState(null);

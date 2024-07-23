@@ -1,11 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import logo_white from "../../../assets/logo_white.svg";
-import {
-  getImagesByBreedId,
-  getBreedById,
-  getBreeds,
-} from "../../../API/CatService";
+import { getBreeds } from "../../../API/CatService";
 import SearchInput from "../components/SearchInput";
 import BreedSuggestions from "../components/BreedSuggestions";
 

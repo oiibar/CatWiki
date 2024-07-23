@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
-import {
-  getImagesByBreedId,
-  getBreedById,
-  getBreeds,
-} from "../../../API/CatService";
+import { getBreeds } from "../../../API/CatService";
 import BreedCard from "../components/BreedCard";
 
 const Discover = () => {

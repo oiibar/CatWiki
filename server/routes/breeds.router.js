@@ -1,9 +1,6 @@
 import express from "express";
-import {
-  getAllBreeds,
-  getBreed,
-  getImages,
-} from "../controllers/breeds.controller.js";
+import controllers from "../controllers/breeds.controller.js";
+const { getAllBreeds, getBreed, getImages } = controllers;
 
 const router = express.Router();
 

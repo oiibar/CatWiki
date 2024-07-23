@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const api = axios.create({
   baseURL: "https://cat-wiki-serv.vercel.app/api",
   timeout: 5000,
@@ -37,4 +38,6 @@ const getImagesByBreedId = async (breedId) => {
   }
 };
 
-export default { getImagesByBreedId, getBreedById, getBreeds };
+const CatService = { getImagesByBreedId, getBreedById, getBreeds };
+
+export default CatService;

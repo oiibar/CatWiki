@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import logo_white from "../../../assets/logo_white.svg";
-import { getBreeds } from "../../../API/CatService";
+import CatService from "../../../API/CatService";
 import SearchInput from "../components/SearchInput";
 import BreedSuggestions from "../components/BreedSuggestions";
 
@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchBreeds = async () => {
-      const result = await getBreeds();
+      const result = await CatService.getBreeds();
       if (!result.error) {
         setBreeds(result);
         setFilteredBreeds(result);

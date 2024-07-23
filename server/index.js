@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://cat-wiki-cli.vercel.app"],
+    origin: ["https://cat-wiki-cli.vercel.app/api"],
     credentials: true,
     optionsSuccessStatus: 200,
   })

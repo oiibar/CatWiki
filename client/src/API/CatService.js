@@ -6,7 +6,7 @@ const api = axios.create({
 
 const getBreeds = async () => {
   try {
-    const response = await api.get(`${BASE_URL}`);
+    const response = await api.get("/breeds");
     return response.data;
   } catch (e) {
     console.error("Error fetching breeds:", e.message);
@@ -16,7 +16,7 @@ const getBreeds = async () => {
 
 const getBreedById = async (breedId) => {
   try {
-    const response = await api.get(`${BASE_URL}/${breedId}`);
+    const response = await api.get(`/breeds/${breedId}`);
     return response.data;
   } catch (e) {
     console.error(`Error fetching breed with ID ${breedId}:`, e.message);
@@ -26,7 +26,7 @@ const getBreedById = async (breedId) => {
 
 const getImagesByBreedId = async (breedId) => {
   try {
-    const response = await api.get(`${BASE_URL}/images/${breedId}`);
+    const response = await api.get(`/breeds/images/${breedId}`);
     return response.data;
   } catch (e) {
     console.error(

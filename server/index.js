@@ -12,7 +12,6 @@ app.use(
   })
 );
 
-// Example route
 app.use("/api", breedRoutes);
 
 app.listen(5000, () => {

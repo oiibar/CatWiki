@@ -1,10 +1,13 @@
 import axios from "axios";
-const BASE_URL = "https://cat-wiki-serv.vercel.app/api";
+const api = axios.create({
+  baseURL: "https://cat-wiki-serv.vercel.app/api",
+  timeout: 5000,
+});
 
 class CatService {
   static async getBreeds() {
     try {
-      const response = await axios.get(`${BASE_URL}`);
+      const response = await api.get(`${BASE_URL}`);
       return response.data;
     } catch (e) {
       console.error("Error fetching breeds:", e.message);
@@ -14,7 +17,7 @@ class CatService {
 
   static async getBreedById(breedId) {
     try {
-      const response = await axios.get(`${BASE_URL}/${breedId}`);
+      const response = await api.get(`${BASE_URL}/${breedId}`);
       return response.data;
     } catch (e) {
       console.error(`Error fetching breed with ID ${breedId}:`, e.message);
@@ -24,7 +27,7 @@ class CatService {
 
   static async getImagesByBreedId(breedId) {
     try {
-      const response = await axios.get(`${BASE_URL}/images/${breedId}`);
+      const response = await api.get(`${BASE_URL}/images/${breedId}`);
       return response.data;
     } catch (e) {
       console.error(

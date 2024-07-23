@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
-import CatService from "../../../API/CatService";
+import {
+  getImagesByBreedId,
+  getBreedById,
+  getBreeds,
+} from "../../../API/CatService";
 import BreedCard from "../components/BreedCard";
 
 const Discover = () => {
@@ -10,7 +14,7 @@ const Discover = () => {
 
   const fetchBreeds = useCallback(async () => {
     setLoading(true);
-    const result = await CatService.getBreeds();
+    const result = await getBreeds();
     if (!result.error) {
       const shuffledBreeds = result.sort(() => 0.5 - Math.random()).slice(0, 4);
       setRandomBreeds(shuffledBreeds);

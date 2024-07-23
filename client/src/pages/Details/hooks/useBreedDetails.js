@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import CatService from "../../../API/CatService";
+import {
+  getImagesByBreedId,
+  getBreedById,
+  getBreeds,
+} from "../../../API/CatService";
 
 const useBreedDetails = (breedId) => {
   const [breed, setBreed] = useState(null);
@@ -10,12 +14,12 @@ const useBreedDetails = (breedId) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const breedData = await CatService.getBreedById(breedId);
+        const breedData = await getBreedById(breedId);
         if (!breedData.error) {
           setBreed(breedData);
         }
 
-        const imagesData = await CatService.getImagesByBreedId(breedId);
+        const imagesData = await getImagesByBreedId(breedId);
         if (!imagesData.error) {
           setImages(imagesData);
         }

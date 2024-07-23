@@ -1,7 +1,7 @@
 // src/hooks/useBreeds.js
 
 import { useState, useEffect, useCallback } from "react";
-import CatService from "../../../API/CatService"; // Adjust the import path if necessary
+import { getBreeds } from "../../../API/CatService"; // Adjust the import path if necessary
 
 const useBreeds = () => {
   const [breeds, setBreeds] = useState([]);
@@ -12,7 +12,7 @@ const useBreeds = () => {
     if (loading) return;
     setLoading(true);
     try {
-      const result = await CatService.getBreeds(page);
+      const result = await getBreeds(page);
       if (result.length > 0) {
         setBreeds(result);
       }

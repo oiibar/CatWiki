@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import axios from "axios";
+import CatService from "../../../API/CatService";
 import "./index.css";
 import bg from "./assets/bg.png";
 import {
@@ -20,9 +20,8 @@ function App() {
 
   const getBreed = useCallback((breedId) => {
     if (breedId) {
-      axios
-        .get(`https://cat-wiki-serv.onrender.com/api/${breedId}`)
-        .then((res) => setBreed(res.data))
+      CatService.getBreedById(breedId)
+        .then((data) => setBreed(data))
         .catch((error) => console.log("Error fetching breed:", error));
     }
   }, []);
@@ -30,9 +29,8 @@ function App() {
   const getImages = useCallback((breedId) => {
     if (breedId) {
       setLoadingImages(true);
-      axios
-        .get(`https://cat-wiki-serv.onrender.com/api/images/${breedId}`)
-        .then((res) => setImages(res.data))
+      CatService.getImagesByBreedId(breedId)
+        .then((data) => setImages(data))
         .catch((error) => console.log("Error fetching images:", error))
         .finally(() => setLoadingImages(false));
     }
@@ -40,9 +38,8 @@ function App() {
 
   const getBreeds = useCallback(() => {
     setLoadingBreeds(true);
-    axios
-      .get(`https://cat-wiki-serv.onrender.com/api`)
-      .then((res) => setBreeds(res.data))
+    CatService.getBreeds()
+      .then((data) => setBreeds(data))
       .catch((error) => console.log("Error fetching breeds:", error))
       .finally(() => setLoadingBreeds(false));
   }, []);

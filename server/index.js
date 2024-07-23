@@ -4,15 +4,19 @@ import breedRoutes from "./routes/breeds.router.js";
 
 const app = express();
 app.use(express.json());
-//{origin: ["https://cat-wiki-cli.vercel.app"]}
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://cat-wiki-cli.vercel.app"],
+    credentials: true,
+    optionsSuccessStatus: 200,
+  })
+);
 
 // Example route
 app.use("/api/breeds", breedRoutes);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(5000, () => {
+  console.log(`Server running on port ${5000}`);
 });
 
 export default app;

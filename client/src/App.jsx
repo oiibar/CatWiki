@@ -21,7 +21,7 @@ function App() {
   const getBreed = useCallback((breedId) => {
     if (breedId) {
       axios
-        .get(`https://cat-wiki-serv.onrender.com/api/breeds/${breedId}`)
+        .get(`https://cat-wiki-serv.onrender.com/api/${breedId}`)
         .then((res) => setBreed(res.data))
         .catch((error) => console.log("Error fetching breed:", error));
     }
@@ -31,7 +31,7 @@ function App() {
     if (breedId) {
       setLoadingImages(true);
       axios
-        .get(`https://cat-wiki-serv.onrender.com/api/breeds/images/${breedId}`)
+        .get(`https://cat-wiki-serv.onrender.com/api/images/${breedId}`)
         .then((res) => setImages(res.data))
         .catch((error) => console.log("Error fetching images:", error))
         .finally(() => setLoadingImages(false));
@@ -41,7 +41,7 @@ function App() {
   const getBreeds = useCallback(() => {
     setLoadingBreeds(true);
     axios
-      .get(`https://cat-wiki-serv.onrender.com/api/breeds`)
+      .get(`https://cat-wiki-serv.onrender.com/api`)
       .then((res) => setBreeds(res.data))
       .catch((error) => console.log("Error fetching breeds:", error))
       .finally(() => setLoadingBreeds(false));

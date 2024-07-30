@@ -11,9 +11,9 @@ const Breeds = () => {
   };
 
   return (
-    <div className="container flex flex-col gap-6 text-[#291507]">
+    <div className="container flex flex-col gap-6">
       <Header />
-      <h1 className="font-bold text-4xl text-[#291507]">Search for a breed</h1>
+      <h1 className="font-bold text-4xl">Search for a breed</h1>
       <div className="flex flex-col gap-4">
         {breeds.map((breed, index) => (
           <BreedCard

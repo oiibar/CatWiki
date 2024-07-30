@@ -5,16 +5,19 @@ import "./index.css";
 import Details from "./pages/Details/Details";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Breeds from "./pages/Breeds/Breeds";
+import { ThemeProvider } from "./theme/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/details/:breedId" element={<Details />} />
-        <Route path="/breeds" element={<Breeds />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/details/:breedId" element={<Details />} />
+          <Route path="/breeds" element={<Breeds />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );

@@ -16,7 +16,7 @@ const BreedCard = ({ breed }) => {
       className="cursor-pointer w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
       onClick={() => handleBreedClick(breed.id)}
     >
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="bg-white dark:bg-section-bg shadow-md rounded-lg overflow-hidden">
         <img
           src={breed.image?.url || "https://placehold.co/200x200"}
           alt={breed.name}

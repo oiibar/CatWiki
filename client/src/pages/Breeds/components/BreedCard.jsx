@@ -1,7 +1,3 @@
-import { FaRegHeart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
-import React, { useState } from "react";
-
 const BreedCard = ({ breed, onClick }) => {
   return (
     <div

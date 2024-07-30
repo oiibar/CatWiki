@@ -25,7 +25,7 @@ const Discover = () => {
   }, [fetchBreeds]);
 
   return (
-    <section className="bg-[#E3E1DC] container mx-auto px-4 lg:px-20 rounded-b-2xl flex flex-col gap-10">
+    <section className="bg-[#E3E1DC] dark:bg-section-bg container mx-auto px-4 lg:px-20 rounded-b-2xl flex flex-col gap-10">
       <div className="flex flex-col sm:flex-row justify-between items-center">
         <h1 className="text-xl font-bold text-center sm:text-left">
           66+ Breeds For You to Discover

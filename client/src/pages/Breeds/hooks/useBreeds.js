@@ -12,20 +12,20 @@ const useBreeds = () => {
     if (loading) return;
     setLoading(true);
     try {
-      const result = await CatService.getBreeds(page);
+      const result = await CatService.getBreeds(page); // Depend on `page`
       if (result.length > 0) {
-        setBreeds(result);
+        setBreeds((prevBreeds) => [...prevBreeds, ...result]); // Append new breeds to existing ones
       }
     } catch (error) {
       console.error("Failed to fetch breeds:", error);
     } finally {
       setLoading(false);
     }
-  }, [loading]);
+  }, [loading, page]); // Include `page` in the dependency array
 
   useEffect(() => {
     fetchBreeds();
-  }, []);
+  }, [fetchBreeds]);
 
   useEffect(() => {
     const handleScroll = () => {

@@ -8,9 +8,10 @@ app.use(
   cors({
     origin: ["https://cat-wiki-cli.vercel.app/api"],
     credentials: true,
-    optionsSuccessStatus: 200,
   })
 );
+
+//http://localhost:3000/api
 
 app.use("/api", breedRoutes);
 

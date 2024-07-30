@@ -49,7 +49,7 @@ export const getImages = async (req, res) => {
 
   try {
     const response = await axios.get(
-      `https://api.thecatapi.com/v1/images/search?limit=5&breed_ids=${breedId}&api_key=${"live_AY4XkKJuWZ8hXuwHOIZAG4w7uCAWiWChT8XW2L57ODUZQMx3aQVPtFDVSs5Tkmb7"}`,
+      `https://api.thecatapi.com/v1/images/search?limit=5&breed_ids=${breedId}`,
       {
         headers: {
           "x-api-key":
@@ -66,4 +66,8 @@ export const getImages = async (req, res) => {
   }
 };
 
-export default { getAllBreeds, getBreed, getImages };
+export default {
+  getAllBreeds,
+  getBreed,
+  getImages,
+};

@@ -32,7 +32,7 @@ const BreedSuggestions = ({
       className="absolute w-full bg-white text-black rounded-xl shadow-lg mt-1 z-10"
       style={{ maxHeight: "200px", overflowY: "auto" }}
     >
-      <ul className="list-none p-0 m-0">
+      <ul className="list-none">
         {filteredBreeds.map((breed) => (
           <li
             key={breed.id}

@@ -1,4 +1,6 @@
-import React from "react";
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
+import React, { useState } from "react";
 
 const BreedCard = ({ breed, onClick }) => {
   return (
@@ -18,7 +20,9 @@ const BreedCard = ({ breed, onClick }) => {
         />
       </div>
       <div className="flex flex-col gap-4 w-full sm:w-2/3">
-        <h3 className="font-semibold text-3xl">{breed.name}</h3>
+        <div className="flex gap-2 items-center">
+          <h3 className="font-semibold text-3xl">{breed.name}</h3>
+        </div>
         <p>{breed.description}</p>
       </div>
     </div>

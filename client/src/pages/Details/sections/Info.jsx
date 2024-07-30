@@ -22,7 +22,6 @@ const Info = ({ breed }) => {
   const largeImageUrl = `https://cdn2.thecatapi.com/images/${reference_image_id}.jpg`;
 
   const [imgSrc, setImgSrc] = useState("https://placehold.co/370x370");
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (reference_image_id) {
@@ -30,15 +29,12 @@ const Info = ({ breed }) => {
       img.src = largeImageUrl;
       img.onload = () => {
         setImgSrc(largeImageUrl);
-        setLoading(false);
       };
       img.onerror = () => {
         console.error("Failed to load image:", largeImageUrl);
         setImgSrc("https://placehold.co/370x370");
-        setLoading(false);
       };
     } else {
-      setLoading(false);
     }
   }, [largeImageUrl, reference_image_id]);
 

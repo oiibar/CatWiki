@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// const baseURL = "http://localhost:5000/api";
 const baseURL = "https://cat-wiki-serv.vercel.app/api";
 
 const getBreeds = async () => {
@@ -35,6 +36,10 @@ const getImagesByBreedId = async (breedId) => {
   }
 };
 
-const CatService = { getImagesByBreedId, getBreedById, getBreeds };
+const CatService = {
+  getImagesByBreedId,
+  getBreedById,
+  getBreeds,
+};
 
 export default CatService;

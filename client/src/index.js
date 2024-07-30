@@ -5,6 +5,7 @@ import "./index.css";
 import Details from "./pages/Details/Details";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Breeds from "./pages/Breeds/Breeds";
+import Favourites from "./pages/Favourites/Favourites";
 import { ThemeProvider } from "./theme/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -16,6 +17,7 @@ root.render(
           <Route path="/" element={<Main />} />
           <Route path="/details/:breedId" element={<Details />} />
           <Route path="/breeds" element={<Breeds />} />
+          <Route path="/favourites" element={<Favourites />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

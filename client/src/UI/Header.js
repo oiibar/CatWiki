@@ -18,6 +18,7 @@ const Header = () => {
             className="w-32"
           />
         </Link>
+        <Link to="/favourites">Favourites</Link>
         <ThemeToggle />
       </div>
     </header>

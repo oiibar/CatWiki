@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import FavouritesCard from "./FavouritesCard";
 
 const Favourites = () => {
   const [likedBreeds, setLikedBreeds] = useState([]);
@@ -14,17 +15,12 @@ const Favourites = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1
-        className="text-4xl font-bold mb-4"
-        onClick={() => {
-          console.log(likedBreeds);
-        }}
-      >
-        Favourites
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div>asdf</div>
+    <div className="py-8">
+      <h1 className="font-bold text-4xl text-center">Favourites</h1>
+      <div className="flex flex-col gap-4 container">
+        {likedBreeds.map((breedId) => (
+          <FavouritesCard key={breedId} breedId={breedId} />
+        ))}
       </div>
     </div>
   );

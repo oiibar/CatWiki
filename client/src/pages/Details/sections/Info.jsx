@@ -78,7 +78,10 @@ const Info = ({ breed }) => {
           {characteristics
             .filter(({ value }) => value > 0)
             .map(({ label, value }, index) => (
-              <div key={index} className="flex justify-between items-center">
+              <div
+                key={index}
+                className="flex justify-between items-center gap-2"
+              >
                 <p className="font-semibold">{label}</p>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (

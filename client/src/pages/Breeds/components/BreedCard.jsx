@@ -34,7 +34,7 @@ const BreedCard = ({ breed, onClick }) => {
 
   return (
     <div
-      className="relative flex flex-col sm:flex-row justify-between gap-4 items-center cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
+      className="relative flex flex-col sm:flex-row justify-between gap-4 items-center cursor-pointer"
       onClick={() => onClick(breed.id)}
     >
       <div className="relative w-full sm:w-1/3 md:w-1/4 lg:w-1/5 h-48 border-2 border-black rounded-xl bg-gray-300">

@@ -1,7 +1,7 @@
 // src/hooks/useBreeds.js
 
 import { useState, useEffect, useCallback } from "react";
-import CatService from "../../../API/CatService";
+import CatService from "../../../API/CatService"; // Adjust the import path if necessary
 
 const useBreeds = () => {
   const [breeds, setBreeds] = useState([]);
@@ -12,20 +12,20 @@ const useBreeds = () => {
     if (loading) return;
     setLoading(true);
     try {
-      const result = await CatService.getBreeds(page); // Depend on `page`
+      const result = await CatService.getBreeds(page);
       if (result.length > 0) {
-        setBreeds((prevBreeds) => [...prevBreeds, ...result]); // Append new breeds to existing ones
+        setBreeds(result);
       }
     } catch (error) {
       console.error("Failed to fetch breeds:", error);
     } finally {
       setLoading(false);
     }
-  }, [loading, page]); // Include `page` in the dependency array
+  }, [loading]);
 
   useEffect(() => {
     fetchBreeds();
-  }, [fetchBreeds]);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

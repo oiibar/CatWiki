@@ -18,8 +18,10 @@ const Header = () => {
             className="w-32"
           />
         </Link>
-        <Link to="/favourites">Favourites</Link>
-        <ThemeToggle />
+        <div className="flex gap-4 items-center justify-center">
+          <Link to="/favourites">Favourites</Link>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

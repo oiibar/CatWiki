@@ -6,12 +6,12 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://cat-wiki-cli.vercel.app/api"],
+    origin: ["http://localhost:3000/api"],
     credentials: true,
   })
 );
 
-//http://localhost:3000/api
+//https://cat-wiki-cli.vercel.app/api
 
 app.use("/api", breedRoutes);
 

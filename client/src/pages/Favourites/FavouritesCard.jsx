@@ -6,7 +6,7 @@ const handleBreedClick = (id) => {
 };
 
 const FavouritesCard = ({ breedId }) => {
-  const { breed, images, loading: hookLoading } = useBreedDetails(breedId);
+  const { breed, loading: hookLoading } = useBreedDetails(breedId);
   const [loading, setLoading] = useState(true);
   const [imgSrc, setImgSrc] = useState("https://placehold.co/370x370");
 
@@ -17,7 +17,6 @@ const FavouritesCard = ({ breedId }) => {
           setLoading(true);
           const largeImageUrl = `https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`;
 
-          // Check image loading
           const img = new Image();
           img.src = largeImageUrl;
           img.onload = () => {

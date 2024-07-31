@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import CatService from "../../../API/CatService";
 import BreedCard from "../components/BreedCard";
+import SkeletonCard from "../components/SkeletonCard"; // Import the SkeletonCard component
 
 const Discover = () => {
   const [randomBreeds, setRandomBreeds] = useState([]);
@@ -38,22 +39,13 @@ const Discover = () => {
         </div>
       </div>
       <div className="flex flex-wrap justify-center lg:justify-between">
-        {loading ? (
-          <div className="w-full flex justify-center items-center py-8">
-            <div
-              className="inline-block h-16 w-16 animate-spin rounded-full border-4 border-solid border-current border-r-transparent"
-              role="status"
-            >
-              <span className="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 clip-rect(0,0,0,0)">
-                Loading...
-              </span>
-            </div>
-          </div>
-        ) : (
-          randomBreeds.map((breed) => (
-            <BreedCard key={breed.id} breed={breed} />
-          ))
-        )}
+        {loading
+          ? Array.from({ length: 4 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))
+          : randomBreeds.map((breed) => (
+              <BreedCard key={breed.id} breed={breed} />
+            ))}
       </div>
     </section>
   );

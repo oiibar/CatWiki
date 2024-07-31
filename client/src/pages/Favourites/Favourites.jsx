@@ -18,9 +18,13 @@ const Favourites = () => {
     <div className="py-8">
       <h1 className="font-bold text-4xl text-center">Favourites</h1>
       <div className="flex flex-col gap-4 container">
-        {likedBreeds.map((breedId) => (
-          <FavouritesCard key={breedId} breedId={breedId} />
-        ))}
+        {likedBreeds.length === 0 ? (
+          <p className="text-center">No favourites yet</p>
+        ) : (
+          likedBreeds.map((breedId) => (
+            <FavouritesCard key={breedId} breedId={breedId} />
+          ))
+        )}
       </div>
     </div>
   );

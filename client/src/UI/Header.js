@@ -15,11 +15,13 @@ const Header = () => {
           <img
             src={isDarkMode ? logo_white : logo_black}
             alt="Logo"
-            className="w-32"
+            className="w-32 cursor-pointer"
           />
         </Link>
         <div className="flex gap-4 items-center justify-center">
-          <Link to="/favourites">Favourites</Link>
+          <Link to="/favourites" className="cursor-pointer">
+            Favourites
+          </Link>
           <ThemeToggle />
         </div>
       </div>

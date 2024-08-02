@@ -4,6 +4,9 @@ const API_KEY =
   "live_AY4XkKJuWZ8hXuwHOIZAG4w7uCAWiWChT8XW2L57ODUZQMx3aQVPtFDVSs5Tkmb7";
 
 export const getAllBreeds = async (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
   try {
     const response = await axios.get("https://api.thecatapi.com/v1/breeds", {
       headers: {
@@ -18,6 +21,9 @@ export const getAllBreeds = async (req, res) => {
 };
 
 export const getBreed = async (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
   const breedId = req.params.id;
 
   try {
@@ -37,6 +43,9 @@ export const getBreed = async (req, res) => {
 };
 
 export const getImages = async (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
   const breedId = req.params.id;
 
   try {

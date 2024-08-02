@@ -4,14 +4,14 @@
 
 <p id="description">This app that I was workign on during a coding bootcamp provides user with a concise information about selected cat breed</p>
 
-  
-  
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
 
-*   Fetches api
-*   Renders images
+- Get 66+ breeds to discovery
+- Displays adorable images of cats
+- Add cats to favourites
+- Search for a specific breed you like
 
 <h2>🛠️ Installation Steps:</h2>
 
@@ -57,15 +57,14 @@ npm i
 npm start
 ```
 
-  
 <h2>💻 Built with</h2>
 
 Technologies used in the project:
 
-*   ReactJS
-*   ExpressJS
-*   API
-*   TailwindCSS
+- ReactJS
+- ExpressJS
+- API
+- TailwindCSS
 
 <h2>💖Like my work?</h2>
 

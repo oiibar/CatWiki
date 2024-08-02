@@ -34,10 +34,10 @@ const BreedCard = ({ breed, onClick }) => {
 
   return (
     <div
-      className="relative flex flex-col sm:flex-row justify-between gap-4 items-center cursor-pointer"
+      className="relative flex flex-col md:flex-row justify-between gap-4 items-center cursor-pointer"
       onClick={() => onClick(breed.id)}
     >
-      <div className="relative w-full sm:w-1/3 md:w-1/4 lg:w-1/5 h-48 border-2 border-black rounded-xl bg-gray-300">
+      <div className="relative w-full h-96 border-2 border-black rounded-xl bg-gray-300">
         <img
           src={breed.image?.url || "https://placehold.co/370x370"}
           className="w-full h-full object-cover rounded-xl"

@@ -6,8 +6,8 @@ const SkeletonCard = () => {
       <div className="bg-white dark:bg-section-bg shadow-md rounded-lg overflow-hidden animate-pulse">
         <div className="w-full h-48 bg-gray-200 dark:bg-gray-700"></div>
         <div className="p-2">
-          <div className="h-6 bg-gray-200 dark:bg-gray-700 w-3/4 mb-2"></div>
-          <div className="h-4 bg-gray-200 dark:bg-gray-700 w-full"></div>
+          <div className="h-6 bg-gray-200 rounded-md dark:bg-gray-700 w-3/4 mb-2"></div>
+          <div className="h-4 bg-gray-200 rounded-md dark:bg-gray-700 w-full"></div>
         </div>
       </div>
     </div>

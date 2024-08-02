@@ -1,14 +1,13 @@
 import axios from "axios";
 
-export const getAllBreeds = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
+const API_KEY =
+  "live_AY4XkKJuWZ8hXuwHOIZAG4w7uCAWiWChT8XW2L57ODUZQMx3aQVPtFDVSs5Tkmb7";
 
+export const getAllBreeds = async (req, res) => {
   try {
     const response = await axios.get("https://api.thecatapi.com/v1/breeds", {
       headers: {
-        "x-api-key":
-          "live_AY4XkKJuWZ8hXuwHOIZAG4w7uCAWiWChT8XW2L57ODUZQMx3aQVPtFDVSs5Tkmb7",
+        "x-api-key": API_KEY,
       },
     });
     res.send(response.data);
@@ -19,9 +18,6 @@ export const getAllBreeds = async (req, res) => {
 };
 
 export const getBreed = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
-
   const breedId = req.params.id;
 
   try {
@@ -29,8 +25,7 @@ export const getBreed = async (req, res) => {
       `https://api.thecatapi.com/v1/breeds/${breedId}`,
       {
         headers: {
-          "x-api-key":
-            "live_AY4XkKJuWZ8hXuwHOIZAG4w7uCAWiWChT8XW2L57ODUZQMx3aQVPtFDVSs5Tkmb7",
+          "x-api-key": API_KEY,
         },
       }
     );
@@ -42,9 +37,6 @@ export const getBreed = async (req, res) => {
 };
 
 export const getImages = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
-
   const breedId = req.params.id;
 
   try {
@@ -52,8 +44,7 @@ export const getImages = async (req, res) => {
       `https://api.thecatapi.com/v1/images/search?limit=5&breed_ids=${breedId}`,
       {
         headers: {
-          "x-api-key":
-            "live_AY4XkKJuWZ8hXuwHOIZAG4w7uCAWiWChT8XW2L57ODUZQMx3aQVPtFDVSs5Tkmb7",
+          "x-api-key": API_KEY,
         },
       }
     );

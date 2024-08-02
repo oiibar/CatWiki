@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FavouritesCard from "./FavouritesCard";
 import SkeletonCard from "./SkeletonCard";
+import Header from "./../../UI/Header";
 
 const Favourites = () => {
   const [likedBreeds, setLikedBreeds] = useState([]);
@@ -19,6 +20,8 @@ const Favourites = () => {
 
   return (
     <div className="py-8">
+      <Header />
+
       <h1 className="font-bold text-4xl text-center">Favourites</h1>
       <div className="flex flex-col gap-4 container">
         {loading ? (

@@ -6,7 +6,7 @@ import BreedCard from "../components/BreedCard";
 import useRandomBreeds from "../hooks/useRandomBreeds";
 
 const Discover = () => {
-  const { data: randomBreeds, isLoading, error } = useRandomBreeds();
+  const { data: randomBreeds = [], isLoading, error } = useRandomBreeds();
 
   return (
     <section className="bg-[#E3E1DC] dark:bg-section-bg container mx-auto px-4 lg:px-20 rounded-b-2xl flex flex-col gap-10">

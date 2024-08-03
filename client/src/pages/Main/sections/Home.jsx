@@ -11,7 +11,7 @@ const Home = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
 
-  const { data: breeds, error } = useAllBreeds();
+  const { data: breeds = [], error } = useAllBreeds();
 
   useEffect(() => {
     if (breeds.length) {

@@ -1,41 +1,26 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import logo_white from "../../../assets/logo_white.svg";
-import CatService from "../../../API/CatService";
 import SearchInput from "../components/SearchInput";
 import BreedSuggestions from "../components/BreedSuggestions";
+import useAllBreeds from "../hooks/useAllBreeds";
 
 const Home = () => {
   const [search, setSearch] = useState("");
-  const [breeds, setBreeds] = useState([]);
   const [filteredBreeds, setFilteredBreeds] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchBreeds = async () => {
-      const result = await CatService.getBreeds();
-      if (!result.error) {
-        setBreeds(result);
-        setFilteredBreeds(result);
-      } else {
-        console.error("Failed to fetch breeds:", result.error);
-      }
-    };
-
-    fetchBreeds();
-  }, []);
+  const { data: breeds, error } = useAllBreeds();
 
   useEffect(() => {
-    const updateFilteredBreeds = () => {
+    if (breeds.length) {
       const lowercasedSearch = search.toLowerCase();
       const newFilteredBreeds = breeds.filter((breed) =>
         breed.name.toLowerCase().includes(lowercasedSearch)
       );
       setFilteredBreeds(newFilteredBreeds);
-    };
-
-    updateFilteredBreeds();
+    }
   }, [search, breeds]);
 
   const handleBreedFetch = useCallback(
@@ -104,6 +89,11 @@ const Home = () => {
               handleSuggestionClick={handleSuggestionClick}
               setShowSuggestions={setShowSuggestions}
             />
+          )}
+          {error && (
+            <p className="text-red-500">
+              Failed to load breeds. Please try again later.
+            </p>
           )}
         </div>
       </div>

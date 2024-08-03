@@ -6,7 +6,7 @@ import logo_black from "../assets/logo_black.svg";
 import logo_white from "../assets/logo_white.svg";
 
 const Header = () => {
-  const { isDarkMode } = useContext(ThemeContext); // Use ThemeContext
+  const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <header>

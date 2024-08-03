@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const baseURL = "https://cat-wiki-serv.vercel.app/api";
-// const baseURL = "https://cat-wiki-serv.vercel.app/api";
-
+//https://cat-wiki-serv.vercel.app
 const getBreeds = async () => {
   try {
     const response = await axios.get(`${baseURL}/`);

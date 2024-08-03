@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useBreedDetails from "../Details/hooks/useBreedDetails";
 
 const handleBreedClick = (id) => {
@@ -6,38 +6,9 @@ const handleBreedClick = (id) => {
 };
 
 const FavouritesCard = ({ breedId }) => {
-  const { breed, loading: hookLoading } = useBreedDetails(breedId);
-  const [loading, setLoading] = useState(true);
-  const [imgSrc, setImgSrc] = useState("https://placehold.co/370x370");
+  const { breed, images, loading, error } = useBreedDetails(breedId);
 
-  useEffect(() => {
-    const fetchBreedDetails = async () => {
-      try {
-        if (breed) {
-          setLoading(true);
-          const largeImageUrl = `https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`;
-
-          const img = new Image();
-          img.src = largeImageUrl;
-          img.onload = () => {
-            setImgSrc(largeImageUrl);
-          };
-          img.onerror = () => {
-            console.error("Failed to load image:", largeImageUrl);
-            setImgSrc("https://placehold.co/370x370");
-          };
-        }
-      } catch (error) {
-        console.error("Failed to fetch breed details:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBreedDetails();
-  }, [breed, breedId]);
-
-  if (loading || hookLoading) {
+  if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div
@@ -52,13 +23,19 @@ const FavouritesCard = ({ breedId }) => {
     );
   }
 
-  if (!breed) {
+  if (error || !breed) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="text-4xl font-bold">No breed details available</div>
+        <div className="text-4xl font-bold">
+          {error
+            ? "Failed to load breed details"
+            : "No breed details available"}
+        </div>
       </div>
     );
   }
+
+  const imgSrc = images[0]?.url || "https://placehold.co/370x370";
 
   return (
     <div

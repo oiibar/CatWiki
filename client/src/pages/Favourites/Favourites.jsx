@@ -9,10 +9,10 @@ const Favourites = () => {
 
   useEffect(() => {
     const fetchLikedBreeds = () => {
-      const likedBreedIds =
-        JSON.parse(localStorage.getItem("likedBreeds")) || [];
+      setLoading(true);
+      const likedBreedIds = JSON.parse(localStorage.getItem("likedBreeds"));
       setLikedBreeds(likedBreedIds);
-      setLoading(false); // Set loading to false after fetching
+      setLoading(false);
     };
 
     fetchLikedBreeds();

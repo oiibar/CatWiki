@@ -1,34 +1,12 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
-import CatService from "../../../API/CatService";
-import BreedCard from "../components/BreedCard";
 import SkeletonCard from "../components/SkeletonCard";
+import BreedCard from "../components/BreedCard";
+import useRandomBreeds from "../hooks/useRandomBreeds";
 
 const Discover = () => {
-  const [randomBreeds, setRandomBreeds] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchBreeds = useCallback(async () => {
-    setLoading(true);
-    try {
-      const result = await CatService.getBreeds();
-      if (!result.error) {
-        const firstFourBreeds = result.slice(0, 4);
-        setRandomBreeds(firstFourBreeds);
-      } else {
-        console.error("Failed to fetch breeds:", result.error);
-      }
-    } catch (error) {
-      console.error("Failed to fetch breeds:", error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchBreeds();
-  }, [fetchBreeds]);
+  const { data: randomBreeds, isLoading, error } = useRandomBreeds();
 
   return (
     <section className="bg-[#E3E1DC] dark:bg-section-bg container mx-auto px-4 lg:px-20 rounded-b-2xl flex flex-col gap-10">
@@ -44,13 +22,19 @@ const Discover = () => {
         </div>
       </div>
       <div className="flex flex-wrap justify-center lg:justify-between">
-        {loading
-          ? Array.from({ length: 4 }).map((_, index) => (
-              <SkeletonCard key={index} />
-            ))
-          : randomBreeds.map((breed) => (
-              <BreedCard key={breed.id} breed={breed} />
-            ))}
+        {isLoading ? (
+          Array.from({ length: 4 }).map((_, index) => (
+            <SkeletonCard key={index} />
+          ))
+        ) : error ? (
+          <p className="text-red-500">
+            Failed to load breeds. Please try again later.
+          </p>
+        ) : (
+          randomBreeds.map((breed) => (
+            <BreedCard key={breed.id} breed={breed} />
+          ))
+        )}
       </div>
     </section>
   );

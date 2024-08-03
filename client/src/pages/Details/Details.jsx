@@ -8,7 +8,7 @@ import Footer from "../../UI/Footer";
 
 const Details = () => {
   const { breedId } = useParams();
-  const { breed, images, loading } = useBreedDetails(breedId);
+  const { breed, images, loading, error } = useBreedDetails(breedId);
 
   if (loading) {
     return (
@@ -25,10 +25,14 @@ const Details = () => {
     );
   }
 
-  if (!breed) {
+  if (error || !breed) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="text-4xl font-bold">No breed details available</div>
+        <div className="text-4xl font-bold">
+          {error
+            ? "Failed to load breed details"
+            : "No breed details available"}
+        </div>
       </div>
     );
   }
